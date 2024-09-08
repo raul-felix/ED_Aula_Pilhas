@@ -15,26 +15,18 @@ public class Main {
 		}
 		System.out.println("Size: " + p.size());
 		
-		while(p.size() > 1) {
-			try {
-				int topo = p.pop();
-				int abaixoTopo = p.pop();
-				if (topo < abaixoTopo) {
-					p.push(topo);
-				} else {
-					p.push(abaixoTopo);
-				}
-			} catch (Exception e) {
-				System.err.println(e.getMessage());
-			}
-		}
+		int menor;
 		try {
-			System.out.println("Menor valor da pilha: " + p.top());
-		}catch (Exception e) {
+			menor = p.pop();
+			while(!p.isEmpty()) {
+				int valor = p.pop();
+				if (valor < menor) {
+					menor = valor;
+				}
+			}
+			System.out.println("Menor valor da pilha: " + menor);
+		} catch (Exception e) {
 			System.err.println(e.getMessage());
 		}
-		
-		
 	}
-
 }
